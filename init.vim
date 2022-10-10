@@ -2,16 +2,19 @@
 call plug#begin('~\AppData\Local\nvim\plugged') 	"directorio donde se van a instalar los plugins
 
 "plugins
-Plug 'ryanoasis/vim-devicons' 		"icons
-Plug 'ap/vim-css-color' 					"css color
-Plug 'windwp/nvim-autopairs' 			"close tags
-Plug 'yuttie/hydrangea-vim' 			"theme for nvim
+Plug 'nvim-lualine/lualine.nvim'  							"status line
+Plug 'overcache/NeoSolarized' 									"theme for nvim
+Plug 'ryanoasis/vim-devicons' 									"icons
+Plug 'windwp/nvim-autopairs' 										"close tags
+Plug 'ap/vim-css-color' 												"css color
+Plug 'sheerun/vim-polyglot' 										"highlighting
+Plug 'elixir-editors/vim-elixir' 								"highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "highlighting
-Plug 'sheerun/vim-polyglot' 			"highlighting
-Plug 'elixir-editors/vim-elixir' 	"highlighting
-Plug 'preservim/nerdtree' 				"system explorer
-Plug 'nvim-lualine/lualine.nvim'  "status line
-
+Plug 'preservim/nerdtree' 											"NerdTree
+Plug 'Xuyuanp/nerdtree-git-plugin' 							"git changes para NerdTree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "highlight para los icons de NerdTree
+Plug 'tpope/vim-fugitive/' 											"git comands in nvim
+Plug 'airblade/vim-gitgutter' 									"git changes in files
 call plug#end() 
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -33,7 +36,8 @@ syntax enable 				"activa el coloreado de sintaxis en algunos tipos de archivos 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "configuracion del tema
 set termguicolors
-colorscheme hydrangea
+set background=dark
+colorscheme NeoSolarized
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "Configuracion de la terminal
@@ -60,8 +64,10 @@ autocmd VimEnter * NERDTree 		 "Abrir automaticamente
 let NERDTreeAutoDeleteBuffer = 1 "borra automaticamente el buffer despues de su eliminacion
 let NERDTreeMinimalUI = 1 			 "lo estiliza
 let NERDTreeDirArrows = 1     	 "lo estiliza
+let g:NERDTreeLimitedSyntax = 1  "nerd font para cambios de NerdTree
 "Abre con ',v'
 nnoremap <Leader>v :NERDTreeToggle<CR> 
+
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "Configuracion de Lualine 
 lua << END
