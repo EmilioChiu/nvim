@@ -7,14 +7,14 @@ Plug 'overcache/NeoSolarized' 									"theme for nvim
 Plug 'ryanoasis/vim-devicons' 									"icons
 Plug 'windwp/nvim-autopairs' 										"close tags
 Plug 'ap/vim-css-color' 												"css color
+Plug 'preservim/nerdtree' 											"nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin' 							"git plug for nerdtree
+Plug 'tpope/vim-fugitive/' 											"git comands in nvim
+Plug 'airblade/vim-gitgutter' 									"git changes in files
 Plug 'sheerun/vim-polyglot' 										"highlighting
 Plug 'elixir-editors/vim-elixir' 								"highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "highlighting
-Plug 'preservim/nerdtree' 											"NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin' 							"git changes para NerdTree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "highlight para los icons de NerdTree
-Plug 'tpope/vim-fugitive/' 											"git comands in nvim
-Plug 'airblade/vim-gitgutter' 									"git changes in files
+
 call plug#end() 
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -55,18 +55,21 @@ function! OpenTerminal()
     split term://PowerShell
     resize 10
 endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
+nnoremap <C-k> :call OpenTerminal()<CR>
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "Configuracion de NerdTree
-let NERDTreeQuitOnOpen = 1 			 "cerrar automaticame despues de abrir un archivo
-autocmd VimEnter * NERDTree 		 "Abrir automaticamente
-let NERDTreeAutoDeleteBuffer = 1 "borra automaticamente el buffer despues de su eliminacion
-let NERDTreeMinimalUI = 1 			 "lo estiliza
-let NERDTreeDirArrows = 1     	 "lo estiliza
-let g:NERDTreeLimitedSyntax = 1  "nerd font para cambios de NerdTree
-"Abre con ',v'
-nnoremap <Leader>v :NERDTreeToggle<CR> 
+autocmd VimEnter * NERDTree 		 "abre nerdtree automaticamente
+let NERDTreeQuitOnOpen = 1  		 "cierra automaticamente despues de elegir archivo
+let NERDTreeAutoDeleteBuffer = 1 "cierra automaticamente el buffer al eliminar un archivo
+set modifiable 									 "set modifiable on
+let NERDTreeMinimalUI = 1 			 "stlyzed
+let NERDTreeDirArrows = 1				 "stlyzed
+
+"abrir nerdtree con ctr-n
+nnoremap <silent> <C-n> :NERDTreeToggle<CR> 
+"cierra si es la unica ventana abierta
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "Configuracion de Lualine 
