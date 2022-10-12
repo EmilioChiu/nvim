@@ -14,6 +14,8 @@ Plug 'sheerun/vim-polyglot' 										"highlighting
 Plug 'elixir-editors/vim-elixir' 								"highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "highlighting
 Plug 'windwp/nvim-autopairs' 										"close tags
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf plug
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete with coc
 
 call plug#end() 
 
@@ -36,11 +38,19 @@ syntax enable 				"activa el coloreado de sintaxis en algunos tipos de archivos 
 "Configuraciones personalizadas
 let mapleader = "," 	"utiliza la coma como tecla lider
 
+"cambia ':' por la tecla lider y cambia el signo '!' por el '1'
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w1 :w!<CR>
+nnoremap <leader>q1 :q!<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>wq1 :wq!<CR>
+
 "usa la tecla lider y una tecla de movimiento para cambiar entre pantallas ej ',+l' == ->
-nnoremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
+nnoremap <leader>h <C-w>h<CR>
+nnoremap <leader>l <C-w>l<CR>
+nnoremap <leader>j <C-w>j<CR>
+nnoremap <leader>k <C-w>k<CR>
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "configuracion del tema
@@ -81,6 +91,31 @@ nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+"coc configuration
+set updatetime=100
+set pumheight=20
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    let g:coc_snippet_next = '<tab>'
+
+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+"fzf configuration
+let g:fzf_preview_window = 'right:50%'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+nnoremap <silent> <C-p> :FZF<CR> 
+
+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "lualine configuration
 lua << END
 local function time()
@@ -96,8 +131,8 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'location'},
+    lualine_x = {'location'},
+    lualine_y = {'encoding'},
     lualine_z = { time }
   },
 }
