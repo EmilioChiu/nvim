@@ -5,7 +5,6 @@ call plug#begin('~\AppData\Local\nvim\plugged') 	"directorio donde se van a inst
 Plug 'nvim-lualine/lualine.nvim'  							"status line
 Plug 'overcache/NeoSolarized' 									"theme for nvim
 Plug 'ryanoasis/vim-devicons' 									"icons
-Plug 'windwp/nvim-autopairs' 										"close tags
 Plug 'ap/vim-css-color' 												"css color
 Plug 'preservim/nerdtree' 											"nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin' 							"git plug for nerdtree
@@ -14,6 +13,7 @@ Plug 'airblade/vim-gitgutter' 									"git changes in files
 Plug 'sheerun/vim-polyglot' 										"highlighting
 Plug 'elixir-editors/vim-elixir' 								"highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "highlighting
+Plug 'windwp/nvim-autopairs' 										"close tags
 
 call plug#end() 
 
@@ -30,8 +30,17 @@ set clipboard=unnamed	"para poder utilizar el portapapeles del sistema operativo
 set colorcolumn=80	  "Muestra la columna límite a 80 caracteres
 set nowrap  					"No dividir la línea si es muy larga
 set spelllang=en,es   "Corregir palabras usando diccionarios en inglés y español
-let mapleader = "," 	"utiliza la coma como tecla lider
 syntax enable 				"activa el coloreado de sintaxis en algunos tipos de archivos como html, c, c++
+
+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+"Configuraciones personalizadas
+let mapleader = "," 	"utiliza la coma como tecla lider
+
+"usa la tecla lider y una tecla de movimiento para cambiar entre pantallas ej ',+l' == ->
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "configuracion del tema
@@ -72,19 +81,24 @@ nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-"Configuracion de Lualine 
+"lualine configuration
 lua << END
-require("lualine").setup {
-		options = {
-				theme = "nightfly",
-				},
-		sections = {
-				lualine_a = { "mode" },
-				lualine_b = { "filename" },
-				lualine_c = { "branch" },
-				lualine_x = { "diff" },
-				lualine_y = { "encoding" },
-				lualine_z = { "location" }
-				}
-		}
+local function time()
+		local hour = os.date('%H') + 1
+		return os.date(hour .. ':%M:%S')
+end
+
+require('lualine').setup {
+  options = {
+    theme = 'nightfly',
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'location'},
+    lualine_z = { time }
+  },
+}
 END
