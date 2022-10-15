@@ -93,7 +93,6 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 "coc configuration
 set updatetime=100
 set pumheight=20
-nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-implementation)
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
