@@ -1,6 +1,6 @@
 ":::instalacion de plugins:::
 call plug#begin('~\AppData\Local\nvim\plugged') 	"directorio donde se van a instalar los plugins
-
+			
 "plugins
 Plug 'nvim-lualine/lualine.nvim'  							"status line
 Plug 'overcache/NeoSolarized' 									"theme for nvim
@@ -13,7 +13,6 @@ Plug 'airblade/vim-gitgutter' 									"git changes in files
 Plug 'sheerun/vim-polyglot' 										"highlighting
 Plug 'elixir-editors/vim-elixir' 								"highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "highlighting
-Plug 'windwp/nvim-autopairs' 										"close tags
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf plug
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete with coc
 
@@ -69,10 +68,10 @@ tnoremap <Esc> <C-\><C-n>
 "Empezar terminal en insert mode
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
-"Abrir terminal con ctrl+n
+"Abrir terminal con ctrl+k
 function! OpenTerminal()
-    split term://PowerShell
-    resize 10
+		split term://PowerShell
+		resize 10
 endfunction
 nnoremap <C-k> :call OpenTerminal()<CR>
 
@@ -81,9 +80,9 @@ nnoremap <C-k> :call OpenTerminal()<CR>
 autocmd VimEnter * NERDTree 		 "abre nerdtree automaticamente
 let NERDTreeQuitOnOpen = 1  		 "cierra automaticamente despues de elegir archivo
 let NERDTreeAutoDeleteBuffer = 1 "cierra automaticamente el buffer al eliminar un archivo
-set modifiable 									 "set modifiable on
 let NERDTreeMinimalUI = 1 			 "stlyzed
 let NERDTreeDirArrows = 1				 "stlyzed
+set modifiable 									 "set modifiable on
 
 "abrir nerdtree con ctr-n
 nnoremap <silent> <C-n> :NERDTreeToggle<CR> 
@@ -94,20 +93,23 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 "coc configuration
 set updatetime=100
 set pumheight=20
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>gi <Plug>(coc-implementation)
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ?
-      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-    function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
-
-    let g:coc_snippet_next = '<tab>'
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "fzf configuration
@@ -119,21 +121,21 @@ nnoremap <silent> <C-p> :FZF<CR>
 "lualine configuration
 lua << END
 local function time()
-		local hour = os.date('%H') + 1
-		return os.date(hour .. ':%M:%S')
+local hour = os.date('%H') + 1
+return os.date(hour .. ':%M:%S')
 end
 
 require('lualine').setup {
-  options = {
-    theme = 'nightfly',
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {'encoding'},
-    lualine_z = { time }
-  },
+		options = {
+  	  	theme = 'nightfly',
+		},
+		sections = {
+				lualine_a = {'mode'},
+				lualine_b = {'branch', 'diff', 'diagnostics'},
+				lualine_c = {'filename'},
+				lualine_x = {'location'},
+				lualine_y = {'encoding'},
+				lualine_z = { time }
+		},
 }
 END
