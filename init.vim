@@ -78,8 +78,9 @@ nnoremap <C-k> :call OpenTerminal()<CR>
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 "Configuracion de NerdTree
 autocmd VimEnter * NERDTree 		 "abre nerdtree automaticamente
-let NERDTreeQuitOnOpen = 1  		 "cierra automaticamente despues de elegir archivo
 let NERDTreeAutoDeleteBuffer = 1 "cierra automaticamente el buffer al eliminar un archivo
+let NERDTreeQuitOnOpen = 1  		 "cierra automaticamente despues de elegir archivo
+let NERDTreeShowHidden = 1  		 "show hidden files
 let NERDTreeMinimalUI = 1 			 "stlyzed
 let NERDTreeDirArrows = 1				 "stlyzed
 set modifiable 									 "set modifiable on
