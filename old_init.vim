@@ -1,7 +1,4 @@
 ":::instalacion de plugins:::
-call plug#begin('~\AppData\Local\nvim\plugged') 	"directorio donde se van a instalar los plugins
-			
-
 set encoding=utf-8  	"permite setear la codificación de archivos para aceptar caracteres especiales
  				"activa el coloreado de sintaxis en algunos tipos de archivos como html, c, c++
 
