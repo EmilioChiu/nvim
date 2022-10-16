@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
   ["vim-nightfly-guicolors"] = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-nightfly-guicolors",
