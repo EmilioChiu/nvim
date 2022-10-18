@@ -42,10 +42,3 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-"fzf configuration
-let g:fzf_preview_window = 'right:50%'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
-nnoremap <silent> <C-p> :FZF<CR> 
-
