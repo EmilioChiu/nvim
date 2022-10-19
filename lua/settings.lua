@@ -10,12 +10,10 @@ o.number = true              --muestra los numeros de cada linea en la parte izq
 o.relativenumber = true      --la distribucion de los numeros en lineas de manera relativa
 o.noshowmode = true          --me deja de mostrar el modo en el que estamos
 o.sw = 4                     --la indentación genera 4 espacios
-o.clipboard = 'unnamedplus'  --para poder utilizar el portapapeles del sistema operativo 
 o.colorcolumn = "80"         --Muestra la columna límite a 80 caracteres
-o.nowrap = true              --No dividir la línea si es muy larg
+o.nowrap = true              --No dividir la línea si es muy larga
 o.spelllang=en            --Corregir palabras usando diccionarios en inglés y español
 o.history = 50               --Recuerda las ultimas 50 acciones
-o.hidden = true
 
 -- Utiliza la coma como tecla lider
 g.mapleader = ','
@@ -28,4 +26,3 @@ o.smartcase = true
 -- Better buffer splitting
 o.splitright = true
 o.splitbelow = true
-
