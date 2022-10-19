@@ -33,6 +33,10 @@ return require('packer').startup(function(use)
 	    'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
 	}
     }
+    use {
+	"windwp/nvim-autopairs",
+	config = function() require("nvim-autopairs").setup {} end
+    }
 
     -- Telescope
     use {
@@ -43,8 +47,8 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    use 'windwp/nvim-autopairs'
     use 'ap/vim-css-color' --Css colors
     use 'tpope/vim-fugitive' -- Git commands for nvim
     use 'airblade/vim-gitgutter' --Git changes in the file
