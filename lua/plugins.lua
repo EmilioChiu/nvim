@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
     use {
 	'nvim-tree/nvim-tree.lua',
 	requires = {
-	    'nvim-tree/nvim-web-devicons', 
+	    'nvim-tree/nvim-web-devicons'
 	},
     }
     --Statusline
@@ -18,24 +18,27 @@ return require('packer').startup(function(use)
 	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    -- Soporte LSP
-    use {'williamboman/mason.nvim'}
-    use {'williamboman/mason-lspconfig.nvim'}
-    use {'neovim/nvim-lspconfig'}
+    --LSP
+    use {
+	'VonHeikemen/lsp-zero.nvim',
+	requires = {
+	    -- Soporte LSP
+	    {'neovim/nvim-lspconfig'},
+	    {'williamboman/mason.nvim'},
+	    {'williamboman/mason-lspconfig.nvim'},
 
-    -- Autocompletado
-    use {
-        "hrsh7th/nvim-cmp",
-        requires = {
-            "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
-            'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
-	    'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-	    'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
+	    -- Autocompletado
+	    {'hrsh7th/nvim-cmp'},
+	    {'hrsh7th/cmp-buffer'},
+	    {'hrsh7th/cmp-path'},
+	    {'saadparwaiz1/cmp_luasnip'},
+	    {'hrsh7th/cmp-nvim-lsp'},
+	    {'hrsh7th/cmp-nvim-lua'},
+
+	    -- Snippets
+	    {'L3MON4D3/LuaSnip'},
+	    {'rafamadriz/friendly-snippets'},
 	}
-    }
-    use {
-	"windwp/nvim-autopairs",
-	config = function() require("nvim-autopairs").setup {} end
     }
 
     -- Telescope
@@ -44,13 +47,17 @@ return require('packer').startup(function(use)
 	requires = { {'nvim-lua/plenary.nvim'} }
     }
     use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	'nvim-treesitter/nvim-treesitter',
+	run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use 'ap/vim-css-color' --Css colors
     use 'tpope/vim-fugitive' -- Git commands for nvim
     use 'airblade/vim-gitgutter' --Git changes in the file
+    use {
+	"windwp/nvim-autopairs",
+	config = function() require("nvim-autopairs").setup {} end
+    }
 
 end)

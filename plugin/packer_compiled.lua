@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   NeoSolarized = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\NeoSolarized",
@@ -83,21 +88,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-calc"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-calc",
-    url = "https://github.com/hrsh7th/cmp-calc"
-  },
-  ["cmp-emoji"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-emoji",
-    url = "https://github.com/hrsh7th/cmp-emoji"
-  },
-  ["cmp-look"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-look",
-    url = "https://github.com/octaltree/cmp-look"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -109,20 +99,25 @@ _G.packer_plugins = {
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
   },
-  ["cmp-nvim-ultisnips"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-ultisnips",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
-  },
   ["cmp-path"] = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-spell"] = {
+  cmp_luasnip = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-spell",
-    url = "https://github.com/f3fora/cmp-spell"
+    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["lsp-zero.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
