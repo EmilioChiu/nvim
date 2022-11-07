@@ -12,7 +12,7 @@ o.noshowmode = true          --me deja de mostrar el modo en el que estamos
 o.sw = 4                     --la indentación genera 4 espacios
 o.colorcolumn = "80"         --Muestra la columna límite a 80 caracteres
 o.nowrap = true              --No dividir la línea si es muy larga
-o.spelllang=en            --Corregir palabras usando diccionarios en inglés y español
+o.spelllang = 'en'            --Corregir palabras usando diccionarios en inglés y español
 o.history = 50               --Recuerda las ultimas 50 acciones
 
 -- Utiliza la coma como tecla lider

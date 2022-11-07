@@ -1,28 +1,32 @@
 return require('packer').startup(function(use)
-    --plug-mannager
+    --Plug-mannager
     use 'wbthomason/packer.nvim'
 
-    --lspconfig
+    --Lspconfig
     use {
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
     }
-    --autocomplete
+    --Autocomplete
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
-    --snip
+    --Snip
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
+    --Terminal
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+	require("toggleterm").setup()
+    end}
 
-    --themes
+    --Themes
     use 'overcache/NeoSolarized'
     use 'bluz71/vim-nightfly-guicolors'
-    --file-explorer
+    --File-explorer
     use {
 	'nvim-tree/nvim-tree.lua',
 	requires = {

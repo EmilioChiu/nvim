@@ -48,14 +48,18 @@ require('lspconfig').elixirls.setup {
 
 -- Special configuration for sumneko_lua 
 require'lspconfig'.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+	debounce_text_changes = 150
     },
-  },
+    settings = {
+	Lua = {
+	    diagnostics = {
+		globals = {'vim'},
+	    },
+	},
+    },
 }
 
 -- this is for diagnositcs signs on the line number column
