@@ -23,6 +23,12 @@ return require('packer').startup(function(use)
 	require("toggleterm").setup()
     end}
 
+    --Bar
+    use {
+	'romgrk/barbar.nvim',
+	requires = {'kyazdani42/nvim-web-devicons'}
+    }
+
     --Themes
     use 'overcache/NeoSolarized'
     use 'bluz71/vim-nightfly-guicolors'
