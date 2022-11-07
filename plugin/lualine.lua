@@ -1,5 +1,5 @@
 local function time()
-    local hour = os.date('%H') + 1
+    local hour = os.date('%H')
     return os.date(hour .. ':%M:%S')
 end
 

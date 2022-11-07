@@ -2,6 +2,23 @@ return require('packer').startup(function(use)
     --plug-mannager
     use 'wbthomason/packer.nvim'
 
+    --lspconfig
+    use {
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+    }
+    --autocomplete
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    --snip
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
+
     --themes
     use 'overcache/NeoSolarized'
     use 'bluz71/vim-nightfly-guicolors'
@@ -18,29 +35,6 @@ return require('packer').startup(function(use)
 	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    --LSP
-    use {
-	'VonHeikemen/lsp-zero.nvim',
-	requires = {
-	    -- Soporte LSP
-	    {'neovim/nvim-lspconfig'},
-	    {'williamboman/mason.nvim'},
-	    {'williamboman/mason-lspconfig.nvim'},
-
-	    -- Autocompletado
-	    {'hrsh7th/nvim-cmp'},
-	    {'hrsh7th/cmp-buffer'},
-	    {'hrsh7th/cmp-path'},
-	    {'saadparwaiz1/cmp_luasnip'},
-	    {'hrsh7th/cmp-nvim-lsp'},
-	    {'hrsh7th/cmp-nvim-lua'},
-
-	    -- Snippets
-	    {'L3MON4D3/LuaSnip'},
-	    {'rafamadriz/friendly-snippets'},
-	}
-    }
-
     -- Telescope
     use {
 	'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -53,6 +47,7 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use 'ap/vim-css-color' --Css colors
+    use 'elixir-editors/vim-elixir' -- Elixir-highlight
     use 'tpope/vim-fugitive' -- Git commands for nvim
     use 'airblade/vim-gitgutter' --Git changes in the file
     use {
