@@ -22,14 +22,8 @@ map('n', '<leader>0', '<Cmd>BufferLast<CR>', opts)
 map('n', '<leader>p', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
 map('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
+-- Close all except for the current or pinned buffer
+map('n', '<leader>cls', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
