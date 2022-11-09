@@ -1,9 +1,19 @@
 require("toggleterm").setup({
     open_mapping = [[<C-t>]],
+    on_open = function ()
+	if vim.g.transparent then
+	    vim.api.nvim_command(":TransparentDisable")
+	end
+    end,
+    on_close = function ()
+	if vim.g.transparent then
+	    vim.api.nvim_command(":TransparentEnable")
+	end
+    end,
     hide_numbers = true,
     start_in_insert = true,
     direction = 'float',
-    shell = 'pwsh',
+    shell = 'powershell',
     float_opts = {
 	border = 'curved',
 	width = 85,
@@ -13,10 +23,10 @@ require("toggleterm").setup({
 })
 
 local Terminal  = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+local lazygit = Terminal:new({ cmd = "lazygit" })
 
 function _LAZYGIT_TOGGLE()
-  lazygit:toggle()
+    lazygit:toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", {noremap = true, silent = true})

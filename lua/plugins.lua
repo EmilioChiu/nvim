@@ -32,6 +32,8 @@ return require('packer').startup(function(use)
     --Themes
     use 'overcache/NeoSolarized'
     use 'bluz71/vim-nightfly-guicolors'
+    use 'xiyaowong/nvim-transparent'
+
     --File-explorer
     use {
 	'nvim-tree/nvim-tree.lua',
