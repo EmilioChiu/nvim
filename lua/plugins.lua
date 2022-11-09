@@ -24,13 +24,11 @@ return require('packer').startup(function(use)
     end}
 
     --Bar
-    use {
-	'romgrk/barbar.nvim',
-	requires = {'kyazdani42/nvim-web-devicons'}
-    }
+    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
     --Themes
     use 'overcache/NeoSolarized'
+    use "EdenEast/nightfox.nvim"
     use 'bluz71/vim-nightfly-guicolors'
     use 'xiyaowong/nvim-transparent'
 

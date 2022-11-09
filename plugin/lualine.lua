@@ -5,7 +5,7 @@ end
 
 require('lualine').setup {
     options = {
-	theme = 'nightfly',
+	theme = 'nord',
     },
     sections = {
 	lualine_a = {'mode'},
