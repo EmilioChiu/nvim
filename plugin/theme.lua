@@ -1,14 +1,13 @@
-require("nightfox").setup({})
 local o = vim.o
 o.termguicolors = true
 o.background = 'dark'
 vim.cmd [[
     syntax enable
-    colorscheme nordfox
+    colorscheme NeoSolarized
 ]]
 
 --Transparent
-vim.g.transparent = true
+vim.g.transparent = false
 require("transparent").setup({
   enable = vim.g.transparent,
   extra_groups = {
