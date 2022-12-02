@@ -21,7 +21,7 @@ map('n', '<leader>0', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
 map('n', '<leader>p', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
-map('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
+map('n', '<leader>x', '<Cmd>BufferClose<CR>', opts)
 -- Close all except for the current or pinned buffer
 map('n', '<leader>cls', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 -- Magic buffer-picking mode

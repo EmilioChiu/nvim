@@ -3,7 +3,7 @@ require("mason-lspconfig").setup()
 local set_keymap = vim.api.nvim_buf_set_keymap
 
 -- Servers
-local servers = {'pyright', 'tsserver', 'jdtls', 'html', 'jsonls', 'cssls'}
+local servers = {'pyright', 'emmet_ls', 'tsserver', 'jdtls', 'html', 'jsonls', 'cssls'}
 
 -- Keybinddings
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -62,6 +62,14 @@ require'lspconfig'.sumneko_lua.setup {
     },
 }
 
+-- Special configuration for html 
+require'lspconfig'.html.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+	debounce_text_changes = 150
+    },
+}
 -- this is for diagnositcs signs on the line number column
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
