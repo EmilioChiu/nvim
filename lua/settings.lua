@@ -4,10 +4,10 @@ local o = vim.o
 -- vim.api.nvim_command('filetype plugin indent on')
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
---CONFIGURACIONES BASICAS 
+--CONFIGURACIONES BÁSICAS 
 o.title = true               --Muestra el nombre del archivo en la ventana de la terminal
-o.number = true              --muestra los numeros de cada linea en la parte izquierda 
-o.relativenumber = true      --la distribución de los numeros en lineas de manera relativa
+o.number = true              --muestra los números de cada linea en la parte izquierda 
+o.relativenumber = true      --la distribución de los números en lineas de manera relativa
 o.noshowmode = true          --me deja de mostrar el modo en el que estamos
 o.sw = 4                     --la incantación genera 4 espacios
 o.colorcolumn = "80"         --Muestra la columna límite a 80 caracteres
