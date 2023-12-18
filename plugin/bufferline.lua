@@ -34,4 +34,3 @@ map('n', '<leader><', '<Cmd>BufferLineMovePrev<CR>')
 
 -- Close all buffers except for the one you're using it
 map('n', '<leader>cls', '<Cmd>lua _CLOSE_ALL()<CR>')
-map('n', '<leader>cls', '<Cmd>lua _CLOSE_ALL()<CR>')

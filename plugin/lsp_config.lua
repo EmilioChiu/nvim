@@ -3,7 +3,7 @@ require("mason-lspconfig").setup()
 local set_keymap = vim.api.nvim_buf_set_keymap
 
 -- Servers
-local servers = {'pyright', 'tsserver', 'jdtls', 'html', 'jsonls', 'cssls'}
+local servers = {'pyright', 'emmet_ls', 'tsserver', 'jdtls', 'html', 'jsonls', 'cssls'}
 
 -- Keybinddings
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -61,6 +61,21 @@ require'lspconfig'.sumneko_lua.setup {
 	},
     },
 }
+
+-- Special configuration for emmet_ls 
+require'lspconfig'.emmet_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
 
 -- this is for diagnositcs signs on the line number column
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
