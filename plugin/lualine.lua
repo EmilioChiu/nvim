@@ -1,6 +1,6 @@
 local function time()
     local hour = os.date('%H')
-    return os.date(hour .. ':%M:%S')
+    return os.date(hour .. ':%M')
 end
 
 require('lualine').setup {

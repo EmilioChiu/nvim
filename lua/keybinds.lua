@@ -22,4 +22,7 @@ map('n', '<leader>j', '<C-w>j')
 map('n', '<leader>k', '<C-w>k')
 
 -- enciende o apaga el check spell de nvim ('z=' para ver opciones)
-map('n', '<leader>spll', ':set invspell<CR>')
+map('n', '<leader>spl', ':set invspell<CR>')
+
+-- ctr-n para abrir/cerrar nvim-tree
+map('n', '<C-n>', ':NvimTreeToggle<CR>')

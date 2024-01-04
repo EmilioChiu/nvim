@@ -8,12 +8,14 @@ local o = vim.o
 o.title = true               --Muestra el nombre del archivo en la ventana de la terminal
 o.number = true              --muestra los números de cada linea en la parte izquierda 
 o.relativenumber = true      --la distribución de los números en lineas de manera relativa
-o.noshowmode = true          --me deja de mostrar el modo en el que estamos
-o.sw = 4                     --la incantación genera 4 espacios
 o.colorcolumn = "80"         --Muestra la columna límite a 80 caracteres
 o.spelllang = "es,en"        --configura el spell check en español y ingles
-o.nowrap = true              --No dividir la línea si es muy larga
 o.history = 50               --Recuerda las ultimas 50 acciones
+
+-- para identar con espacios
+o.expandtab = true
+o.tabstop = 4
+o.shiftwidth = 4
 
 -- Utiliza la coma como tecla líder
 g.mapleader = ','

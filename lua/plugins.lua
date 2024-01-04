@@ -30,38 +30,39 @@ return require('packer').startup(function(use)
     use 'overcache/NeoSolarized'
     use "EdenEast/nightfox.nvim"
     use 'bluz71/vim-nightfly-guicolors'
-    use 'xiyaowong/nvim-transparent'
 
     --File-explorer
     use {
-	'nvim-tree/nvim-tree.lua',
-	requires = {
-	    'nvim-tree/nvim-web-devicons'
-	},
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
     }
+
     --Statusline
     use {
-	'nvim-lualine/lualine.nvim',
-	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
     -- Telescope
     use {
-	'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	requires = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        requires = { {'nvim-lua/plenary.nvim'} }
     }
-    use {
-	'nvim-treesitter/nvim-treesitter',
-	run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    use { 'nvim-treesitter/nvim-treesitter', run = function()
+        local ts_update = require('nvim-treesitter.install').update({ 
+            with_sync = true }) ts_update()
+        end, 
     }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use 'ap/vim-css-color' --Css colors
     use 'elixir-editors/vim-elixir' -- Elixir-highlight
     use 'tpope/vim-fugitive' -- Git commands for nvim
     use 'airblade/vim-gitgutter' --Git changes in the file
     use {
-	"windwp/nvim-autopairs",
-	config = function() require("nvim-autopairs").setup {} end
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
     }
 end)
