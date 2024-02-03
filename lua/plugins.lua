@@ -23,9 +23,6 @@ return require('packer').startup(function(use)
 	require("toggleterm").setup()
     end}
 
-    --Bar
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-
     --Themes
     use 'overcache/NeoSolarized'
     use "EdenEast/nightfox.nvim"
@@ -51,15 +48,14 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use { 'nvim-treesitter/nvim-treesitter', run = function()
-        local ts_update = require('nvim-treesitter.install').update({ 
+        local ts_update = require('nvim-treesitter.install').update({
             with_sync = true }) ts_update()
-        end, 
+        end,
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use 'ap/vim-css-color' --Css colors
     use 'elixir-editors/vim-elixir' -- Elixir-highlight
-    use 'tpope/vim-fugitive' -- Git commands for nvim
     use 'airblade/vim-gitgutter' --Git changes in the file
     use {
         "windwp/nvim-autopairs",

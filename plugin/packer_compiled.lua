@@ -1,5 +1,4 @@
 -- Automatically generated packer.nvim plugin loader code
-
 if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
   vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
   return
@@ -79,11 +78,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\NeoSolarized",
     url = "https://github.com/overcache/NeoSolarized"
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
@@ -145,11 +139,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-transparent"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-transparent",
-    url = "https://github.com/xiyaowong/nvim-transparent"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
@@ -200,11 +189,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-elixir",
     url = "https://github.com/elixir-editors/vim-elixir"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
