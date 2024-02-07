@@ -52,6 +52,7 @@ lspconfig.rubocop.setup {
     requireRootPattern = true,
     capabilities = capabilities,
     on_attach = on_attach,
+    root_dir = lspconfig.util.root_pattern('Gemfile', '.git', '.rubocop.yml'),
     cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
 }
 
