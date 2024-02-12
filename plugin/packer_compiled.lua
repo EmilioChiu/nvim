@@ -1,4 +1,5 @@
 -- Automatically generated packer.nvim plugin loader code
+
 if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
   vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
   return
@@ -48,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\EMILIO~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1703358377\\share\\lua\\5.1\\?.lua;C:\\Users\\EMILIO~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1703358377\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\EMILIO~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1703358377\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\EMILIO~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1703358377\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\EMILIO~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1703358377\\lib\\lua\\5.1\\?.so"
+local package_path_str = "/home/emilio/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?.lua;/home/emilio/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?/init.lua;/home/emilio/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?.lua;/home/emilio/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/emilio/.cache/nvim/packer_hererocks/2.1.1692716794/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -75,134 +76,139 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   NeoSolarized = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\NeoSolarized",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/NeoSolarized",
     url = "https://github.com/overcache/NeoSolarized"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-cmdline",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-vsnip"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  ["github-notifications.nvim"] = {
+    loaded = true,
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/github-notifications.nvim",
+    url = "https://github.com/rlch/github-notifications.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-fzf-native.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-css-color"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-css-color",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/vim-css-color",
     url = "https://github.com/ap/vim-css-color"
   },
   ["vim-elixir"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-elixir",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/vim-elixir",
     url = "https://github.com/elixir-editors/vim-elixir"
   },
   ["vim-gitgutter"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gitgutter",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-nightfly-guicolors"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-nightfly-guicolors",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
     url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "C:\\Users\\Emilio Chiu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
+    path = "/home/emilio/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
