@@ -20,13 +20,28 @@ return require('packer').startup(function(use)
 
     --Terminal
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-	require("toggleterm").setup()
+        require("toggleterm").setup()
     end}
+
+    --test in nvim
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "olimorris/neotest-rspec",
+            "jfpedroza/neotest-elixir",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        }
+    }
+
 
     --Themes
     use 'overcache/NeoSolarized'
     use "EdenEast/nightfox.nvim"
     use 'bluz71/vim-nightfly-guicolors'
+    --Transparent nvim
+    use 'xiyaowong/transparent.nvim'
 
     --File-explorer
     use {
@@ -60,6 +75,14 @@ return require('packer').startup(function(use)
 
     use 'ap/vim-css-color' --Css colors
     use 'elixir-editors/vim-elixir' -- Elixir-highlight
+
+    --MD preview
+    use({
+        "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
+
     use 'airblade/vim-gitgutter' --Git changes in the file
     use {
         "windwp/nvim-autopairs",

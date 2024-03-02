@@ -37,9 +37,17 @@ for _, lsp in pairs(servers) do
     }
 end
 
+-- Special configuration for md 
+lspconfig.marksman.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+	    debounce_text_changes = 150
+    }
+}
+
 -- Special configuration for elixir 
 lspconfig.elixirls.setup {
-    cmd = { "C:/Users/Emilio Chiu/AppData/Local/nvim-data/mason/packages/elixir-ls/rel/language_server.bat" },
     capabilities = capabilities,
     on_attach = on_attach,
     flags = {
@@ -48,12 +56,12 @@ lspconfig.elixirls.setup {
 }
 
 -- Special configuration for ruby 
-lspconfig.rubocop.setup {
-    requireRootPattern = true,
+lspconfig.rubocop.setup{
     capabilities = capabilities,
     on_attach = on_attach,
-    root_dir = lspconfig.util.root_pattern('Gemfile', '.git', '.rubocop.yml'),
-    cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+    flags = {
+	    debounce_text_changes = 150
+    }
 }
 
 -- Special configuration for lua 

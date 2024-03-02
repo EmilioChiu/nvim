@@ -5,7 +5,7 @@ end
 
 require('lualine').setup {
     options = {
-	theme = 'nightfly',
+	    theme = 'nord',
     },
     sections = {
 	lualine_a = {'mode'},
@@ -15,3 +15,5 @@ require('lualine').setup {
 	lualine_z = { time }
     },
 }
+--transparent the lualine
+require('transparent').clear_prefix('lualine')
