@@ -27,3 +27,5 @@ o.smartcase = true
 
 -- Better buffer splitting
 o.splitright = true o.splitbelow = true
+
+vim.api.nvim_set_option("clipboard","unnamed") -- para que el portapapeles funcione en la terminal

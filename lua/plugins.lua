@@ -2,11 +2,14 @@ return require('packer').startup(function(use)
     --Plug-mannager
     use 'wbthomason/packer.nvim'
 
+    --CopilotChat
+    use 'CopilotC-Nvim/CopilotChat.nvim'
+
     --Lspconfig
     use {
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
     }
     --Autocomplete
     use 'hrsh7th/cmp-nvim-lsp'

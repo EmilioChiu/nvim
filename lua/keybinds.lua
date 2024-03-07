@@ -15,30 +15,54 @@ map('n', '<leader>w1', ':w!<CR>')
 map('n', '<leader>q1', ':q!<CR>')
 map('n', '<leader>wq1', ':wq!<CR>')
 
--- usa la tecla lider con (w) y (s || v) para dividir la pantalla
-map('n', '<leader>ws', '<C-w>s<CR>')
-map('n', '<leader>wv', '<C-w>v<CR>')
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- cambia los la coma por la tecla líder para poder moverse entre buffers
+map('n', '<leader>bn', ':bn<CR>')
+map('n', '<leader>bp', ':bp<CR>')
 
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- Paste to clipboard
+map('v', '<leader>y', '"+y')
+map('n', '<leader>Y', '"+y')
+
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- split windows
+map('n', '<leader>ws', '<C-w>s<CR>') -- split window horizontal
+map('n', '<leader>wv', '<C-w>v<CR>') -- split window vertical
+map('n', '<leader>wc', '<C-w>c<CR>') -- cierra una ventana
+map('n', '<leader>wo', '<C-w>o<CR>') -- cierra todas las ventanas excepto la actual
+
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- new tabs
+map('n', '<leader>tn', ':tabnew') -- abre una nueva ventana
+map('n', '<leader>tN', ':tabNext') -- se dirije hacia la proxima ventana
+map('n', '<leader>tP', ':tabPrevious') -- se dirije hacia la ventana anterior
+
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- usa la tecla líder y una tecla de movimiento para cambiar de pantalla
 map('n', '<leader>h', '<C-w>h<CR>')
 map('n', '<leader>l', '<C-w>l<CR>')
 map('n', '<leader>j', '<C-w>j<CR>')
 map('n', '<leader>k', '<C-w>k<CR>')
 
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- enciende o apaga el check spell de nvim ('z=' para ver opciones)
 map('n', '<leader>spl', ':set invspell<CR>')
 
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- ctr-n para abrir/cerrar nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>')
 
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- toggle nvim-transparent
 map('n', '<leader>tt', ':TransparentToggle<CR>')
 
--- turn on lsp-notification
-map('n', '<leader>on', ':LspStart<CR>')
--- turn off lsp-notification
-map('n', '<leader>of', ':LspStop<CR>')
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- lsp
+map('n', '<leader>on', ':LspStart<CR>')-- turn on lsp-notification
+map('n', '<leader>of', ':LspStop<CR>')-- turn off lsp-notification
 
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- tests
 map('n', '<leader>tstn', ':lua require("neotest").run.run()<CR>') --the nearest test
 map('n', '<leader>tstf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>') -- file test
@@ -48,6 +72,14 @@ map('n', '<leader>tstw', ':lua require("neotest").watch()<CR>') -- directory tes
 map('n', '<leader>tstoa', ':lua require("neotest").output_panel.toggle()<CR>')
 map('n', '<leader>tsto', ':lua require("neotest").output()<CR>')
 
---test
-map('n', '<leader>md', ':MarkdownPreview<CR>')
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+map('n', '<leader>md', ':MarkdownPreview<CR>')-- markdown preview
+
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+--Copilot-chat todavia no funciona xd
 map('n', '<leader>git', ':Copilot setup<CR>')
+map('n', '<leader>ccb', '<cmd>CopilotChatBuffer<CR>')
+map('n', '<leader>cce', '<cmd>CopilotChatExplain<CR>')
+map('n', '<leader>cct', '<cmd>CopilotChatTests<CR>')
+map('n', '<leader>ccv', ':CopilotChatVisual<CR>')
+map('n', '<leader>ccx', ':CopilotChatInPlace<CR>')
