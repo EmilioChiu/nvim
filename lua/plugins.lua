@@ -43,8 +43,6 @@ return require('packer').startup(function(use)
     use 'overcache/NeoSolarized'
     use "EdenEast/nightfox.nvim"
     use 'bluz71/vim-nightfly-guicolors'
-    --Transparent nvim
-    use 'xiyaowong/transparent.nvim'
 
     --File-explorer
     use {

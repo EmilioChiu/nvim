@@ -5,5 +5,3 @@ vim.cmd [[
     syntax enable
     colorscheme NeoSolarized
 ]]
-
-require("transparent").setup({})

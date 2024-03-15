@@ -13,7 +13,7 @@ require("toggleterm").setup({
     hide_numbers = true,
     start_in_insert = true,
     direction = 'float',
-    shell = 'bash',
+    shell = 'zsh',
     float_opts = {
 	border = 'curved',
 	width = 85,

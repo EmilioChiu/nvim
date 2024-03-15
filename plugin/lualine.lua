@@ -16,5 +16,3 @@ require('lualine').setup {
 	lualine_z = { time }
     },
 }
---transparent the lualine
-require('transparent').clear_prefix('lualine')
