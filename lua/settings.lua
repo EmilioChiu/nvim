@@ -11,6 +11,8 @@ o.relativenumber = true      --la distribución de los números en lineas de man
 o.colorcolumn = "80"         --Muestra la columna límite a 80 caracteres
 o.spelllang = "es,en"        --configura el spell check en español y ingles
 o.history = 50               --Recuerda las ultimas 50 acciones
+g.tmux_navigator_no_mappings = 1
+vim.api.nvim_set_option("clipboard","unnamedplus") -- para que el portapapeles funcione en la terminal
 
 -- para identar con espacios
 o.expandtab = true
@@ -28,4 +30,3 @@ o.smartcase = true
 -- Better buffer splitting
 o.splitright = true o.splitbelow = true
 
-vim.api.nvim_set_option("clipboard","unnamed") -- para que el portapapeles funcione en la terminal

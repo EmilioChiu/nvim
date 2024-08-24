@@ -1,3 +1,5 @@
+local dap = require "dap"
+
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
@@ -17,13 +19,9 @@ map('n', '<leader>wq1', ':wq!<CR>')
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- cambia los la coma por la tecla líder para poder moverse entre buffers
-map('n', '<leader>bn', ':bn<CR>')
-map('n', '<leader>bp', ':bp<CR>')
-
---:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- Paste to clipboard
-map('v', '<leader>y', '"+y')
-map('n', '<leader>Y', '"+y')
+map('n', '<C-o>', ':bn<CR>')
+map('n', '<C-i>', ':bp<CR>')
+map('n', '<leader>x', ":bp|bd #<CR>") --close the current buffer
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- split windows
@@ -34,16 +32,16 @@ map('n', '<leader>wo', '<C-w>o<CR>') -- cierra todas las ventanas excepto la act
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- new tabs
-map('n', '<leader>tn', ':tabnew') -- abre una nueva ventana
-map('n', '<leader>tN', ':tabNext') -- se dirije hacia la proxima ventana
-map('n', '<leader>tP', ':tabPrevious') -- se dirije hacia la ventana anterior
+map('n', '<leader>tN', ':tabnew') -- abre una nueva ventana
+map('n', '<leader-O>', ':tabNext') -- se dirije hacia la proxima ventana
+map('n', '<leader-I>', ':tabPrevious') -- se dirije hacia la ventana anterior
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- usa la tecla líder y una tecla de movimiento para cambiar de pantalla
-map('n', '<leader>h', '<C-w>h<CR>')
-map('n', '<leader>l', '<C-w>l<CR>')
-map('n', '<leader>j', '<C-w>j<CR>')
-map('n', '<leader>k', '<C-w>k<CR>')
+-- usa la tecla líder y una tecla de movimiento para cambiar de pantalla 
+map('n', '<C-h>', ':wincmd h<CR>')
+map('n', '<C-l>', ':wincmd l<CR>')
+map('n', '<C-j>', ':wincmd j<CR>')
+map('n', '<C-k>', ':wincmd k<CR>')
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- enciende o apaga el check spell de nvim ('z=' para ver opciones)
@@ -54,32 +52,21 @@ map('n', '<leader>spl', ':set invspell<CR>')
 map('n', '<C-n>', ':NvimTreeToggle<CR>')
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- toggle nvim-transparent
-map('n', '<leader>tt', ':TransparentToggle<CR>')
-
---:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- lsp
-map('n', '<leader>on', ':LspStart<CR>')-- turn on lsp-notification
-map('n', '<leader>of', ':LspStop<CR>')-- turn off lsp-notification
+-- toggle diagnnostic lsp
+map('n', '<leader>i', ':DiagnosticToggle<CR>')
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- tests
-map('n', '<leader>tstn', ':lua require("neotest").run.run()<CR>') --the nearest test
-map('n', '<leader>tstf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>') -- file test
-map('n', '<leader>tstD', ':lua require("neotest").run.run(vim.fn.expand("path/to/directory")CR>') -- directory test
-map('n', '<leader>tstt', ':lua require("neotest").summary.toggle()<CR>') -- directory test
-map('n', '<leader>tstw', ':lua require("neotest").watch()<CR>') -- directory test
+map('n', '<leader>t ', ':lua require("neotest").run.run()<CR>') --the nearest test
+map('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>') -- file test
+map('n', '<leader>tD', ':lua require("neotest").run.run(vim.fn.expand("path/to/directory")CR>') -- directory test
+map('n', '<leader>tt', ':lua require("neotest").summary.toggle()<CR>') -- summary
+map('n', '<leader>tw', ':lua require("neotest").watch()<CR>') -- watch
 map('n', '<leader>tstoa', ':lua require("neotest").output_panel.toggle()<CR>')
-map('n', '<leader>tsto', ':lua require("neotest").output()<CR>')
+map('n', '<leader>to', ':lua require("neotest").output()<CR>')
 
+-- debbuger
+vim.keymap.set('n', '<Leader>dt', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>dc', function() dap.continue() end)
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 map('n', '<leader>md', ':MarkdownPreview<CR>')-- markdown preview
-
---:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
---Copilot-chat todavia no funciona xd
-map('n', '<leader>git', ':Copilot setup<CR>')
-map('n', '<leader>ccb', '<cmd>CopilotChatBuffer<CR>')
-map('n', '<leader>cce', '<cmd>CopilotChatExplain<CR>')
-map('n', '<leader>cct', '<cmd>CopilotChatTests<CR>')
-map('n', '<leader>ccv', ':CopilotChatVisual<CR>')
-map('n', '<leader>ccx', ':CopilotChatInPlace<CR>')

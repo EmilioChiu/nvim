@@ -63,7 +63,8 @@ telescope.setup {
     }
 }
 
-require('telescope').load_extension('fzf')
+telescope.load_extension('fzf')
+telescope.load_extension 'dap'
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})  --find file
 vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})   --find word

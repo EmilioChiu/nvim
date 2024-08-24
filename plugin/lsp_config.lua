@@ -1,10 +1,11 @@
 require("mason").setup()
+require("mason-nvim-dap").setup()
 require("mason-lspconfig").setup()
 local set_keymap = vim.api.nvim_buf_set_keymap
 local lspconfig = require('lspconfig')
 
 -- Servers
-local servers = {'pyright', 'tsserver', 'jdtls', 'jsonls', 'cssls'}
+local servers = {'solargraph', 'pyright', 'tsserver', 'jdtls', 'jsonls', 'cssls'}
 
 -- Keybinddings
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -17,7 +18,6 @@ local on_attach = function(client, bufnr)
     set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     set_keymap(bufnr, 'n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     set_keymap(bufnr, 'n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
@@ -56,7 +56,7 @@ lspconfig.elixirls.setup {
 }
 
 -- Special configuration for ruby 
-lspconfig.rubocop.setup{
+lspconfig.solargraph.setup{
     capabilities = capabilities,
     on_attach = on_attach,
     flags = {
@@ -102,3 +102,12 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 end
 
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+	local config = vim.diagnostic.config
+	local vt = config().virtual_text
+	config {
+		virtual_text = not vt,
+		underline = not vt,
+		signs = not vt,
+	}
+end, { desc = "toggle diagnostic" })
