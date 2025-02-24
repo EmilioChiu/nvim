@@ -13,6 +13,7 @@ o.spelllang = "es,en"        --configura el spell check en español y ingles
 o.history = 50               --Recuerda las ultimas 50 acciones
 g.tmux_navigator_no_mappings = 1
 vim.api.nvim_set_option("clipboard","unnamedplus") -- para que el portapapeles funcione en la terminal
+vim.cmd([[ set shada=!,'1000,<50,s10,h ]]) --recuerda los ultimos cambios que se hicieron aun si saliste del nvim
 
 -- para identar con espacios
 o.expandtab = true

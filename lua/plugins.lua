@@ -38,6 +38,22 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end}
 
+    --kitty_pet
+    use({
+        "giusgad/pets.nvim",
+        requires = {
+            "giusgad/hologram.nvim",
+            "MunifTanjim/nui.nvim",
+        }
+    })
+
+    --dadbod (querys on database)
+    use ({
+        "tpope/vim-dadbod",
+        "kristijanhusak/vim-dadbod-completion",
+        "kristijanhusak/vim-dadbod-ui",
+    })
+
     --test in nvim
     use {
         "nvim-neotest/neotest",

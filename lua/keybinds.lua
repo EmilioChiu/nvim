@@ -32,9 +32,9 @@ map('n', '<leader>wo', '<C-w>o<CR>') -- cierra todas las ventanas excepto la act
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- new tabs
-map('n', '<leader>tN', ':tabnew') -- abre una nueva ventana
-map('n', '<leader-O>', ':tabNext') -- se dirije hacia la proxima ventana
-map('n', '<leader-I>', ':tabPrevious') -- se dirije hacia la ventana anterior
+map('n', '<leader>tN', ':tabnew<CR>') -- abre una nueva ventana
+map('n', '<leader>O', ':tabNext<CR>') -- se dirije hacia la proxima ventana
+map('n', '<leader>I', ':tabprevious<CR>') -- se dirije hacia la ventana anterior
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- usa la tecla líder y una tecla de movimiento para cambiar de pantalla 
