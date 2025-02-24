@@ -1,3 +1,2 @@
-require('settings')
+require('setting.lazy')
 require('keybinds')
-require('plugins')
