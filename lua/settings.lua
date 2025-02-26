@@ -15,6 +15,10 @@ g.tmux_navigator_no_mappings = 1
 vim.api.nvim_set_option("clipboard","unnamedplus") -- para que el portapapeles funcione en la terminal
 vim.cmd([[ set shada=!,'1000,<50,s10,h ]]) --recuerda los ultimos cambios que se hicieron aun si saliste del nvim
 
+-- conf para dark theme
+o.termguicolors = true
+o.background = 'dark'
+
 -- para identar con espacios
 o.expandtab = true
 o.tabstop = 4
