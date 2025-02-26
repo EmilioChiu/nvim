@@ -1,60 +1,63 @@
-return {
+return require('packer').startup(function(use)
+    --Plug-mannager
+    use 'wbthomason/packer.nvim'
+
     --Lspconfig
-    {
+    use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-    },
+    }
     --Autocomplete
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
     --Copilot
-    'github/copilot.vim',
+    use 'github/copilot.vim'
 
     --Snip
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
 
     --Debugger (Dap)
-    {'mfussenegger/nvim-dap', dependencies = {"suketa/nvim-dap-ruby"}},
-    {
+    use {'mfussenegger/nvim-dap', requires = {"suketa/nvim-dap-ruby"}}
+    use {
         "williamboman/mason.nvim",
         "mfussenegger/nvim-dap",
         "jay-babu/mason-nvim-dap.nvim",
-    },
-    'theHamsta/nvim-dap-virtual-text',
-    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+    }
+    use 'theHamsta/nvim-dap-virtual-text'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
 
     --Tmux
-    'alexghergh/nvim-tmux-navigation',
+    use 'alexghergh/nvim-tmux-navigation'
     --Terminal
-    {"akinsho/toggleterm.nvim", version = '*', config = function()
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
-    end},
+    end}
 
     --kitty_pet
-    {
+    use({
         "giusgad/pets.nvim",
-        dependencies = {
+        requires = {
             "giusgad/hologram.nvim",
             "MunifTanjim/nui.nvim",
         }
-    },
+    })
 
     --dadbod (querys on database)
-    {
+    use ({
         "tpope/vim-dadbod",
         "kristijanhusak/vim-dadbod-completion",
         "kristijanhusak/vim-dadbod-ui",
-    },
+    })
 
     --test in nvim
-    {
+    use {
         "nvim-neotest/neotest",
-        dependencies = {
+        requires = {
             "nvim-neotest/nvim-nio",
             "nvim-lua/plenary.nvim",
             "olimorris/neotest-rspec",
@@ -62,66 +65,66 @@ return {
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter"
         }
-    },
+    }
 
     --Themes
-    'overcache/NeoSolarized',
-    "EdenEast/nightfox.nvim",
-    'bluz71/vim-nightfly-guicolors',
-    { "catppuccin/nvim", name = "catppuccin" },
+    use 'overcache/NeoSolarized'
+    use "EdenEast/nightfox.nvim"
+    use 'bluz71/vim-nightfly-guicolors'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     --File-explorer
-    {
+    use {
         'nvim-tree/nvim-tree.lua',
-        dependencies = {
+        requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
-    },
+    }
 
     --Statusline
-    {
+    use {
         'nvim-lualine/lualine.nvim',
-        dependencies = {
+        requires = {
             "rlch/github-notifications.nvim",
             'kyazdani42/nvim-web-devicons',
-            lazy = true
+            opt = true
         }
-    },
+    }
 
     -- Telescope
-    {
-        'nvim-telescope/telescope.nvim', version = '0.1.6',
-        dependencies = { {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-dap.nvim'} }
-    },
-    { 'nvim-treesitter/nvim-treesitter', build = function()
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        requires = { {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-dap.nvim'} }
+    }
+    use { 'nvim-treesitter/nvim-treesitter', run = function()
         local ts_update = require('nvim-treesitter.install').update({
             with_sync = true }) ts_update()
         end,
-    },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    'ap/vim-css-color', --Css colors
-    'elixir-editors/vim-elixir', -- Elixir-highlight
+    use 'ap/vim-css-color' --Css colors
+    use 'elixir-editors/vim-elixir' -- Elixir-highlight
 
     --harppon
-    {
+    use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
-        dependencies = { {"nvim-lua/plenary.nvim"} }
-    },
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
 
     -- MD preview
-    {
+    use({
         "iamcco/markdown-preview.nvim",
-        build = function() vim.fn["mkdp#util#install"]() end,
-    },
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
-    { "iamcco/markdown-preview.nvim", build = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, },
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
-    'airblade/vim-gitgutter', --Git changes in the file
-    'tpope/vim-commentary', -- comment with gc motion
-    {
+    use 'airblade/vim-gitgutter' --Git changes in the file
+    use 'tpope/vim-commentary' -- comment with gc motion
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-}
+end)
