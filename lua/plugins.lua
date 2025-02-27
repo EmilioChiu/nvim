@@ -67,22 +67,10 @@ return {
      "EdenEast/nightfox.nvim",
      'bluz71/vim-nightfly-guicolors',
 
-     { 'nvim-treesitter/nvim-treesitter', build = function()
-        local ts_update = require('nvim-treesitter.install').update({
-            with_sync = true }) ts_update()
-        end,
-    },
      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
      'ap/vim-css-color', --Css colors
      'elixir-editors/vim-elixir', -- Elixir-highlight
-
-    --harppon
-     {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { {"nvim-lua/plenary.nvim"} }
-    },
 
     -- MD preview
     {

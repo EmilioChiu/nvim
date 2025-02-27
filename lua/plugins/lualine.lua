@@ -11,6 +11,11 @@ return {
         },
         sections = {
             lualine_c = {'buffers'},
-            lualine_x = {'encoding', 'location', 'filetype'},
+            lualine_y = {
+                {
+                    'filename',
+                    path = 1
+                }
+            },
         }}
     }
