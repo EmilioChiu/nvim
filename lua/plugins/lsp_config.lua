@@ -16,17 +16,18 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function ()
-
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lsp_config = require("lspconfig")
-      lsp_config.lua_ls.setup({})
-      lsp_config.solargraph.setup({})
-      lsp_config.pyright.setup({})
-      lsp_config.jdtls.setup({})
-      lsp_config.jsonls.setup({})
-      lsp_config.cssls.setup({})
-      lsp_config.elixirls.setup({cmd = {"/Users/emiliochiu/.config/elixir_ls/language_server.sh"}})
-      lsp_config.marksman.setup({})
-      lsp_config.emmet_ls.setup({})
+
+      lsp_config.lua_ls.setup({capabilities = capabilities})
+      lsp_config.solargraph.setup({capabilities = capabilities})
+      lsp_config.pyright.setup({capabilities = capabilities})
+      lsp_config.jdtls.setup({capabilities = capabilities})
+      lsp_config.jsonls.setup({capabilities = capabilities})
+      lsp_config.cssls.setup({capabilities = capabilities})
+      lsp_config.elixirls.setup({capabilities = capabilities, cmd = {"/Users/emiliochiu/.config/elixir_ls/language_server.sh"}})
+      lsp_config.marksman.setup({capabilities = capabilities})
+      lsp_config.emmet_ls.setup({capabilities = capabilities})
 
       vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
