@@ -17,9 +17,3 @@ return {
     })
   end
 }
-
--- local dap = require "dap"
--- -- debbuger
--- vim.keymap.set('n', '<Leader>dt', function() dap.toggle_breakpoint() end)
--- vim.keymap.set('n', '<Leader>dc', function() dap.continue() end)
---
