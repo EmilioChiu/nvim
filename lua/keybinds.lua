@@ -62,3 +62,8 @@ map("n", "<leader>tt", ':lua require("neotest").summary.toggle()<CR>', {desc = "
 map("n", "<leader>tw", ':lua require("neotest").watch()<CR>')                                   -- watch
 map("n", "<leader>tstoa", ':lua require("neotest").output_panel.toggle()<CR>')
 map("n", "<leader>to", ':lua require("neotest").output()<CR>')
+--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- probar codigo de lua para nvim
+map("n", "<leader><leader>x", "<cmd>source %<CR>", {desc = "Run lua file"})
+map("n", "<leader>x",  ":.lua<CR>", {desc = "Run lua line"})
+map("v", "<leader>x",  ":lua<CR>", {desc = "Run lua selected line(s)"})
