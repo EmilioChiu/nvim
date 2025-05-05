@@ -11,9 +11,9 @@ end
 map("n", "<leader>w", ":w<CR>", {desc = "Save current file"})
 map("n", "<leader>q", ":q<CR>", {desc = "Quit nvim"})
 map("n", "<leader>wq", ":wq<CR>", {desc = "Write and Quit Nvim"})
-map("n", "<leader>w1", ":w!<CR>", {desc = "Force Write current file"})
-map("n", "<leader>q1", ":q!<CR>", {desc = "Force Quit nvim"})
-map("n", "<leader>wq1", ":wq!<CR>", {desc = "Force Write and Quit Nvim"})
+map("n", "<leader>w!", ":w!<CR>", {desc = "Force Write current file"})
+map("n", "<leader>q!", ":q!<CR>", {desc = "Force Quit nvim"})
+map("n", "<leader>wq!", ":wq!<CR>", {desc = "Force Write and Quit Nvim"})
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- cambia los la coma por la tecla líder para poder moverse entre buffers
@@ -62,8 +62,3 @@ map("n", "<leader>tt", ':lua require("neotest").summary.toggle()<CR>', {desc = "
 map("n", "<leader>tw", ':lua require("neotest").watch()<CR>')                                   -- watch
 map("n", "<leader>tstoa", ':lua require("neotest").output_panel.toggle()<CR>')
 map("n", "<leader>to", ':lua require("neotest").output()<CR>')
---:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- probar codigo de lua para nvim
-map("n", "<leader><leader>x", "<cmd>source %<CR>", {desc = "Run lua file"})
-map("n", "<leader>x",  ":.lua<CR>", {desc = "Run lua line"})
-map("v", "<leader>x",  ":lua<CR>", {desc = "Run lua selected line(s)"})
