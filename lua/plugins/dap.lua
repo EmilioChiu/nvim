@@ -5,7 +5,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		"nvim-telescope/telescope-dap.nvim",
 		"jbyuki/one-small-step-for-vimkind",
-		"williamboman/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 	},
 	config = function()
 		require("telescope").load_extension("dap")

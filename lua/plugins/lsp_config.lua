@@ -1,52 +1,50 @@
 return {
 	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
+		"mason-org/mason.nvim",
+		opts = {},
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"elixirls",
-					"emmet_ls",
-					"marksman",
-					"lua_ls",
-					"solargraph",
-					"pyright",
-					"jdtls",
-					"jsonls",
-					"cssls",
-				},
-			})
-		end,
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		opts = {
+			automatic_enable = true, -- ⚠️ Requiere Neovim 0.11+
+			ensure_installed = {
+				"lua_ls",
+				"pyright",
+				"solargraph",
+				"jdtls",
+				"jsonls",
+				"cssls",
+				"elixirls",
+				"marksman",
+				"emmet_ls",
+			},
+			handlers = {
+				function(server_name)
+					local capabilities = require("cmp_nvim_lsp").default_capabilities()
+					require("lspconfig")[server_name].setup({ capabilities = capabilities })
+				end,
+				elixirls = function()
+					require("lspconfig").elixirls.setup({
+						capabilities = require("cmp_nvim_lsp").default_capabilities(),
+						cmd = { "/Users/emiliochiu/.config/elixir_ls/language_server.sh" },
+					})
+				end,
+			},
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lsp_config = require("lspconfig")
-
-			lsp_config.lua_ls.setup({ capabilities = capabilities })
-			lsp_config.solargraph.setup({ capabilities = capabilities })
-			lsp_config.pyright.setup({ capabilities = capabilities })
-			lsp_config.jdtls.setup({ capabilities = capabilities })
-			lsp_config.jsonls.setup({ capabilities = capabilities })
-			lsp_config.cssls.setup({ capabilities = capabilities })
-			lsp_config.elixirls.setup({
-				capabilities = capabilities,
-				cmd = { "/Users/emiliochiu/.config/elixir_ls/language_server.sh" },
-			})
-			lsp_config.marksman.setup({ capabilities = capabilities })
-			lsp_config.emmet_ls.setup({ capabilities = capabilities })
-
+			-- Atajos de LSP
 			vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
-			-- this is for diagnositcs signs on the line number column
+			-- Diagnóstico: signos personalizados
 			local signs = { Error = "💢", Warn = "⚡", Hint = "🤖", Info = "🚀" }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type

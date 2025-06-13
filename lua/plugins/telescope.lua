@@ -73,7 +73,6 @@ return {
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, {}) --find file
 			vim.keymap.set("n", "<leader>fw", builtin.live_grep, {}) --find word
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {}) --find help
-			vim.keymap.set("n", "<leader>gc", builtin.git_commits, {}) --git commits
 			vim.keymap.set("n", "<leader>gs", builtin.git_status, {}) --git status
 		end,
 	},

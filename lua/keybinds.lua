@@ -19,7 +19,7 @@ map("n", "<leader>wq!", ":wq!<CR>", {desc = "Force Write and Quit Nvim"})
 -- cambia los la coma por la tecla líder para poder moverse entre buffers
 map("n", "<C-o>", ":bn<CR>", {desc = "Next buffer"})
 map("n", "<C-i>", ":bp<CR>", {desc = "Previous buffer"})
-map("n", "<leader>x", ":bp|bd #<CR>", {desc = "Close current buffer"}) --close the current buffer
+map("n", "<leader>x", ":bp|bd #<CR>", {desc = "Close current buffer"}) --closle the current buffer
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- split windows
