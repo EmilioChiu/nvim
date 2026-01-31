@@ -1,22 +1,24 @@
 return {
-	"catppuccin/nvim",
+	-- "catppuccin/nvim",
+  "folke/tokyonight.nvim",
 	lazy = false,
-	name = "catppuccin",
+	-- name = "catppuccin",
 	priority = 1000,
 	opts = {
-		color_overrides = {
-			all = {
-				text = "#ffffff",
-			},
-			mocha = {
-				base = "#1e1e2e",
-			},
-			frappe = {},
-			macchiato = {},
-			latte = {},
-		},
+    -- activar para catppuccin
+		-- color_overrides = {
+		-- 	all = {
+		-- 		text = "#ffffff",
+		-- 	},
+		-- 	mocha = {
+		-- 		base = "#1e1e2e",
+		-- 	},
+		-- 	frappe = {},
+		-- 	macchiato = {},
+		-- 	latte = {},
+		-- },
 	},
 	config = function()
-		vim.cmd.colorscheme("catppuccin-mocha")
+    vim.cmd[[colorscheme tokyonight-storm]]
 	end,
 }

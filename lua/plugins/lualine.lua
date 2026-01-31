@@ -7,7 +7,7 @@ return {
   },
   opts = {
     options = {
-      theme = "catppuccin",
+      theme = "palenight",
     },
     sections = {
       lualine_c = { "buffers" },

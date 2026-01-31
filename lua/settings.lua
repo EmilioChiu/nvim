@@ -56,6 +56,14 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "pyton",
+	callback = function()
+		vim.opt.tabstop = 4
+		vim.opt.shiftwidth = 4
+	end,
+})
+
 -- Utiliza la coma como tecla líder
 g.mapleader = ","
 g.maplocalleader = ","

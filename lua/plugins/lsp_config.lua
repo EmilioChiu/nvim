@@ -5,7 +5,7 @@ return {
 			require("mason").setup()
 		end,
 	},
-	{
+  {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
@@ -14,7 +14,6 @@ return {
 					"emmet_ls",
 					"marksman",
 					"lua_ls",
-					"solargraph",
 					"pyright",
 					"jdtls",
 					"jsonls",
@@ -27,20 +26,191 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lsp_config = require("lspconfig")
+      local schemastore = require("schemastore")
 
-			lsp_config.lua_ls.setup({ capabilities = capabilities })
-			lsp_config.solargraph.setup({ capabilities = capabilities })
-			lsp_config.pyright.setup({ capabilities = capabilities })
-			lsp_config.jdtls.setup({ capabilities = capabilities })
-			lsp_config.jsonls.setup({ capabilities = capabilities })
-			lsp_config.cssls.setup({ capabilities = capabilities })
-			lsp_config.elixirls.setup({
-				capabilities = capabilities,
-				cmd = { "/Users/emiliochiu/.config/elixir_ls/language_server.sh" },
-			})
-			lsp_config.marksman.setup({ capabilities = capabilities })
-			lsp_config.emmet_ls.setup({ capabilities = capabilities })
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
+
+        settings = {
+          Lua = {
+
+            runtime = {
+              version = "LuaJIT",
+            },
+
+            diagnostics = {
+              globals = { "vim" },
+            },
+
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
+
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+            },
+          },
+        },
+      })
+
+
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+
+        settings = {
+          json = {
+            validate = { enable = true },
+
+            schemas = schemastore.json.schemas(),
+
+            format = {
+              enable = true,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("cssls", {
+        capabilities = capabilities,
+
+        settings = {
+          css = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+            completion = {
+              completePropertyWithSemicolon = true,
+              triggerPropertyValueCompletion = true,
+            },
+            format = {
+              enable = true,
+            },
+          },
+
+          scss = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+
+          less = {
+            validate = true,
+          },
+        },
+      })
+
+      local elixirls_cmd =
+        vim.fn.stdpath("data")
+        .. "/mason/packages/elixir-ls/language_server.sh"
+
+      vim.lsp.config("elixirls", {
+        cmd = { elixirls_cmd },
+
+        capabilities = capabilities,
+
+        settings = {
+          elixirLS = {
+            dialyzerEnabled = true,
+            dialyzerFormat = "short",
+            fetchDeps = true,
+            enableTestLenses = true,
+            formatter = { enabled = true },
+            suggestSpecs = true,
+            signatureAfterComplete = true,
+          },
+        },
+      })
+
+      vim.lsp.config("marksman", {
+        capabilities = capabilities,
+
+        settings = {
+          markdown = {
+            completion = {
+              wikiLinks = true,
+            },
+
+            links = {
+              validate = true,
+            },
+
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("emmet_ls", {
+        capabilities = capabilities,
+
+        settings = {
+          emmet = {
+            showExpandedAbbreviation = "always",
+            showAbbreviationSuggestions = true,
+
+            includeLanguages = {
+              javascript = "javascriptreact",
+              typescript = "typescriptreact",
+            },
+
+            excludeLanguages = { "markdown" },
+
+            variables = {
+              lang = "en",
+            },
+
+            preferences = {
+              ["bem.enabled"] = true,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("docker_language_server", {
+        capabilities = capabilities,
+        settings = {
+          docker = {
+            validate = true,
+            hover = true,
+            completion = true,
+          },
+        },
+      })
+
+      vim.lsp.enable({
+        "lua_ls",
+        "pyright",
+        "jdtls",
+        "elixirls",
+        "html",
+        "cssls",
+        "emmet_ls",
+        "tsserver",
+        "eslint",
+        "jsonls",
+        "yamlls",
+        "marksman",
+        "docker_language_server",
+      })
 
 			vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
