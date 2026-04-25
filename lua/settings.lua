@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "pyton",
+	pattern = "python",
 	callback = function()
 		vim.opt.tabstop = 4
 		vim.opt.shiftwidth = 4

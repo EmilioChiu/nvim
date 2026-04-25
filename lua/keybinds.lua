@@ -11,9 +11,9 @@ end
 map("n", "<leader>w", ":w<CR>", {desc = "Save current file"})
 map("n", "<leader>q", ":q<CR>", {desc = "Quit nvim"})
 map("n", "<leader>wq", ":wq<CR>", {desc = "Write and Quit Nvim"})
-map("n", "<leader>w1", ":w!<CR>", {desc = "Force Write current file"})
-map("n", "<leader>q1", ":q!<CR>", {desc = "Force Quit nvim"})
-map("n", "<leader>wq1", ":wq!<CR>", {desc = "Force Write and Quit Nvim"})
+map("n", "<leader>w!", ":w!<CR>", {desc = "Force Write current file"})
+map("n", "<leader>q!", ":q!<CR>", {desc = "Force Quit nvim"})
+map("n", "<leader>wq!", ":wq!<CR>", {desc = "Force Write and Quit Nvim"})
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- cambia los la coma por la tecla líder para poder moverse entre buffers
@@ -47,7 +47,7 @@ map("n", "<leader>spl", ":set invspell<CR>", {desc = "Toggle spell check"})
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- ctr-n para abrir/cerrar nvim-tree
-map("n", "<C-n>", ":NvimTreeToggle<CR>")
+map("n", "<leader>nt", ":NvimTreeToggle<CR>", {desc = "Toggle NvimTree"})
 
 --:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- toggle diagnnostic lsp
@@ -57,7 +57,7 @@ map("n", "<leader>i", ":DiagnosticToggle<CR>")
 -- tests
 map("n", "<leader>t ", ':lua require("neotest").run.run()<CR>', {desc = "runs the nearest test"})
 map("n", "<leader>tf", ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', {desc = "runs all the tests of the current file"})               -- file test
-map("n", "<leader>tD", ':lua require("neotest").run.run(vim.fn.expand("path/to/directory")CR>', {desc = "runs all the tests of the current directory"}) -- directory test
+map("n", "<leader>tD", ':lua require("neotest").run.run(vim.fn.expand("path/to/directory"))<CR>', {desc = "runs all the tests of the current directory"}) -- directory test
 map("n", "<leader>tt", ':lua require("neotest").summary.toggle()<CR>', {desc = "toggle the summary tests"})                          -- summary
 map("n", "<leader>tw", ':lua require("neotest").watch()<CR>')                                   -- watch
 map("n", "<leader>tstoa", ':lua require("neotest").output_panel.toggle()<CR>')
